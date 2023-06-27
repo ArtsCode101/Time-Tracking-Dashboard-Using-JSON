@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Time tracking dashboard</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  
+</head>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+.attribution { font-size: 11px; text-align: center; position: relative; top: 110px;}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+:root{
+  /*Primary*/
+
+  --Blue: hsl(246, 80%, 60%);
+  --LightRed-work: hsl(15, 100%, 70%);
+  --SoftBlue-play: hsl(195, 74%, 62%);
+  --LightRed-study: hsl(348, 100%, 68%);
+  --LimeGreen-exercise: hsl(145, 58%, 55%);
+  --VioletSocial: hsl(264, 64%, 52%);
+  --SoftOrange-care: hsl(43, 84%, 65%);
+
+  /*Netural*/
+
+  --Vdark-blue: hsl(226, 43%, 10%);
+  --DarkBlue: hsl(235, 46%, 20%);
+  --DesaturatedBlue: hsl(235, 45%, 61%);
+  --PaleBlue: hsl(236, 100%, 87%);
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: var(--Vdark-blue);
+  font-size: 18px;
+  font-family: Rubik, sans-serif;
+
+}
+.box{
+  width: 1100px;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  grid-template-rows: 218px 218px;
+  grid-template-columns: 260px 260px 260px 260px; 
+  position: relative;
+  top: 100px;
+  margin-left: 210px;
+  margin-right: 210px;
+  display: grid;
+  grid-template-areas: 
+  "profile work play study"
+  "profile exercise social self-care"
+   
+  
+}
+#profile{
+  border-radius: 15px;
+  height: 458px;
+  grid-area: profile;
+  background-color: var(--DarkBlue);
+}
+#work{
+  border-radius: 15px;
+  grid-area: work;
+  background-color: var(--LightRed-work);
+ 
+}
+#play{
+  border-radius: 15px;
+  grid-area: play;
+  background-color: var(--SoftBlue-play);
+}
+#study{
+  border-radius: 15px;
+  grid-area: study;
+  background-color: var(--LightRed-study);
+}
+#exercise{
+  border-radius: 15px;
+  grid-area: exercise;
+  background-color: var(--LimeGreen-exercise);
+}
+#social{
+  border-radius: 15px;
+  grid-area: social;
+  background-color: var(--VioletSocial);
+  overflow: hidden;
+}
+#self-care{
+  border-radius: 15px;
+  grid-area: self-care;
+  background-color: var(--SoftOrange-care);
+  overflow: hidden;
+}
+.PurpProf{
+  height: 300px;
+  border-radius: 15px;
+}
+#pic{
+  position: relative;
+  left: 20px;
+  top: 20px;
+  width: 85px;
+  height: 85px;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+.DarkBlueBoxTop{
+  position:absolute;
+  width: 260px;
+  top: 45px;
+  height: 173px;
+  border-radius: 15px;
+  z-index: 1;
+
+}
+.DarkBlueBoxTopTwo{
+  position:absolute;
+  width: 260px;
+  top: 45px;
+  height: 173px;
+  border-radius: 15px;
+
+}
+.DarkBlueBoxTopThree{
+  position:absolute;
+  width: 260px;
+  top: 45px;
+  height: 173px;
+  border-radius: 15px;
+
+}
+.DarkBlueBoxBottom{
+  position:absolute;
+  width: 260px;
+  top: 283px;
+  height: 173px;
+  border-radius: 15px;
+}
+.DarkBlueBoxBottomTwo{
+  position:absolute;
+  width: 260px;
+  top: 283px;
+  height: 173px;
+  border-radius: 15px;
+}
+.DarkBlueBoxBottomThree{
+  position:absolute;
+  width: 260px;
+  top: 283px;
+  height: 173px;
+  border-radius: 15px;
+}
+
+#time{
+  position: relative;
+  left: 30px;
+}
+#name{
+  display: none;
+}
+h4{
+  color:  var(--DesaturatedBlue); 
+  font-weight: lighter; 
+  position:relative; 
+  left: 30px; 
+  top: 20px;
+}
+.track{
+  position: relative; 
+  top: -95px; 
+  font-size: 16px; 
+  left: 30px; 
+  color: var(--PaleBlue); 
+  font-weight: lighter; 
+}
+.hours{
+  color: white; 
+  font-weight: lighter; 
+  font-size: 60px; 
+  position:relative; 
+  top: -62px; 
+  left: 25px;
+}
+.icon{
+  position: relative; 
+  left: 170px;
+}
+.dots{
+  position: relative; 
+  left: 190px; 
+  top: -42px;
+
+}
+
+
+
+@media screen and (max-width: 800px){
+    .box{
+      grid-template-columns: 1fr;
+      grid-template-rows: 0fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
+      width: 500px;
+      grid-template-areas: 
+      "profile"
+      "work"
+      "play"
+      "study"
+      "exercise"
+      "social"
+      "self-care"
+
+      
+    }
+    #name{
+      display: inline-block;
+      color: white; 
+      position:relative; 
+      left: 130px;
+      top: -120px; 
+      font-size: 25px;
+      font-weight: lighter;
+
+    }
+    h4{
+      position: relative;
+      left: 130px;
+      top: -80px
+    }
+    #vertical{
+      display: none;
+    }
+    .days{
+      display: inline-block;
+      margin-left: 18px;
+      margin-right: 45px;
+      
+    }
+    .PurpProf{
+      height: 145px;
+    }
+    #profile{
+      position: relative;
+      top: -5px;
+      height: 225px;
+      width: 386px;
+    }
+    #work{
+      width: 386px;
+    }
+    #play{
+      width: 386px;
+    }
+    #study{
+      width: 386px;
+    }
+    #exercise{
+      width: 386px;
+    }
+    #social{
+      width: 386px;
+    }
+    #self-care{
+      width: 386px;
+    }
+    .DarkBlueBoxTop{
+      position: absolute;
+      top: 295px;
+      height: 130px;
+      width: 386px;
+    }
+    .DarkBlueBoxTopTwo{
+      position: absolute;
+      top: 495px;
+      height: 130px;
+      width: 386px;
+    }
+    .DarkBlueBoxTopThree{
+      position: absolute;
+      top: 695px;
+      height: 130px;
+      width: 386px;
+    }
+    .DarkBlueBoxBottom{
+      position: absolute;
+      top: 895px;
+      height: 130px;
+      width: 386px;
+    }
+    .DarkBlueBoxBottomTwo{
+      position: absolute;
+      top: 1097px;
+      height: 130px;
+      width: 386px;
+    }
+    .DarkBlueBoxBottomThree{
+      position: absolute;
+      top: 1295px;
+      height: 130px;
+      width: 386px;
+    }
+    .icon{
+      position: relative;
+      left: 280px;
+    }
+    .hours{
+      position: relative;
+      top: -70px;
+      left: 15px;
+      font-size: 45px;
+    }
+    .track{
+      position: relative;
+      left: 195px;
+      top: -133px;
+      
+    }
+    .dots{
+      position: relative;
+      left: 320px;
+    }
+    .attribution{
+      position: relative;
+      left: 140px;
+    }
+    
+}
+
+
+</style>
+
+
+
+
+<body>
+
+ <div class="box">
+
+  <div id="profile">
+    <div style="background-color: var(--Blue);" class="PurpProf">
+      <img src="./images/image-jeremy.png" alt="Profle-Pic" id="pic">
+      <h4>Report For</h4>
+      <h1 id="name">Jeremy Robson</h1>
+      <h1 style="color: white; position:relative; left: 30px; font-weight: lighter;" id="vertical">Jeremy<br>Robson</h1>
+      
+    </div> <!--PurpProf-->
+
+    <div id="time">
+    <p style="color: var(--PaleBlue); font-weight: lighter;" class="days" id="DailyHrs" onclick="changeInfo('DailyHrs')">Daily</p>
+    <p style="color: var(--PaleBlue); font-weight: lighter;" class="days" id="WeeklyHrs" onclick="changeInfo('WeeklyHrs')">Weekly</p>
+    <p style="color: var(--PaleBlue); font-weight: lighter;" class="days" id="MonthlyHrs" onclick="changeInfo('MonthlyHrs')">Monthly</p>
+    </div>
+  </div> <!--Profil-->
+  
+  <div id="work">
+    <img src="./images/icon-work.svg" alt="work" class="icon">
+    <div style="background-color: var(--DarkBlue);" class="DarkBlueBoxTop">
+      <p style="color: white; position: relative; left: 20px;">Work</p>
+      <img src="./images/icon-ellipsis.svg" class="dots">
+      <h1 class="hours">0hrs</h1>
+      <p class="track">Select Time Tracking</p>
+     </div>
+  </div>
+
+  <div id="play">
+    <img src="./images/icon-play.svg" alt="play" class="icon">
+    <div style="background-color: var(--DarkBlue);" class="DarkBlueBoxTopTwo">
+      <p style="color: white; position: relative; left: 20px;">Play</p>
+      <img src="./images/icon-ellipsis.svg" class="dots">
+      <h1 class="hours">0hrs</h1>
+      <p class="track">Select Time Tracking</p>
+    </div>
+  </div>
+  
+  <div id="study">
+    <img src="./images/icon-study.svg" alt="study" class="icon">
+    <div style="background-color: var(--DarkBlue);" class="DarkBlueBoxTopThree">
+      <p style="color: white; position: relative; left: 20px;">Study</p>
+      <img src="./images/icon-ellipsis.svg" class="dots">
+      <h1 class="hours">0hrs</h1>
+      <p class="track">Select Time Tracking</p>
+      </div>
+  </div>
+
+  <div id="exercise">
+    <img src="./images/icon-exercise.svg" alt="exercise" class="icon">
+    <div style="background-color: var(--DarkBlue)" class="DarkBlueBoxBottom" >
+      <p style="color: white; position: relative; left: 20px;">Exercise</p>
+      <img src="./images/icon-ellipsis.svg" class="dots">
+      <h1 class="hours">0hrs</h1>
+      <p class="track">Select Time Tracking</p>
+      </div>
+  </div>
+
+  <div id="social">
+    <img src="./images/icon-social.svg" alt="social" class="icon">
+    <div style="background-color: var(--DarkBlue)" class="DarkBlueBoxBottomTwo">
+      <p style="color: white; position: relative; left: 20px;">Social</p>
+      <img src="./images/icon-ellipsis.svg" class="dots">
+      <h1 class="hours">0hrs</h1>
+      <p class="track">Select Time Tracking</p>
+     </div>
+  </div>
+  <div id="self-care">
+    <img src="./images/icon-self-care.svg" alt="care" class="icon">
+    <div style="background-color: var(--DarkBlue)" class="DarkBlueBoxBottomThree" >
+      <p style="color: white; position: relative; left: 20px;">Self Care</p>
+      <img src="./images/icon-ellipsis.svg" class="dots">
+      <h1 class="hours" >0hrs</h1>
+      <p class="track">Select Time Tracking</p>  
+    </div>
+  </div>
+
+ </div>
+  
+
+  
+
+
+
+ <div class="attribution">
+    <p style="display: inline-block; color: white;">Challenge by</p> <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    <p style="display: inline-block; color: white;">Coded by</p> <a href="#">Atharv Adhyapak</a>.
+  </div>
+  
+  <script>
+    
+    
+    function changeInfo(stateChange){
+      
+      var hours = document.getElementsByClassName('hours');
+      var previous = document.getElementsByClassName('track');
+      var active = document.getElementsByClassName('days');
+
+        fetch("./data.json")
+          .then(response => response.json())
+          .then(data => {
+            
+            //console.log(data[0].timeframes.daily.current);
+
+            if(stateChange == "DailyHrs"){
+
+              for(let index = 0; index < 7; index++){
+                 var changeHours = hours[index].innerHTML = data[index].timeframes.daily.current + "hrs";
+                 var previousState = previous[index].innerHTML = "Previous - " + data[index].timeframes.daily.previous + "hrs";
+              }
+            }
+            else if(stateChange == "WeeklyHrs"){
+              for(let index = 0; index < 7; index++){
+                 var changeHours = hours[index].innerHTML = data[index].timeframes.weekly.current + "hrs";
+                 var previousState = previous[index].innerHTML = "Previous - " + data[index].timeframes.weekly.previous + "hrs";
+              }
+            }
+            else{
+              for(let index = 0; index < 7; index++){
+                 var changeHours = hours[index].innerHTML = data[index].timeframes.monthly.current + "hrs";
+                 var previousState = previous[index].innerHTML = "Previous - " + data[index].timeframes.monthly.previous + "hrs";
+              }
+            }
+           
+          })
+        
+    }
+  </script>
+</body>
+</html>
